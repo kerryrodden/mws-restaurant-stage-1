@@ -46,9 +46,9 @@ class DBHelper {
   static fetchNeighborhoods() {
     return DBHelper.fetchRestaurants().then((restaurants) => {
       // Get all neighborhoods from all restaurants
-      const neighborhoods = restaurants.map((v, i) => restaurants[i].neighborhood)
+      const neighborhoods = restaurants.map((v, i) => restaurants[i].neighborhood);
       // Remove duplicates from neighborhoods
-      const uniqueNeighborhoods = neighborhoods.filter((v, i) => neighborhoods.indexOf(v) == i)
+      const uniqueNeighborhoods = neighborhoods.filter((v, i) => neighborhoods.indexOf(v) == i);
       return uniqueNeighborhoods;
     });
   }
@@ -56,19 +56,20 @@ class DBHelper {
   /**
    * Fetch all cuisines with proper error handling.
    */
-  static fetchCuisines(callback) {
+  static fetchCuisines() {
     // Fetch all restaurants
     return DBHelper.fetchRestaurants().then((restaurants) => {
       // Get all cuisines from all restaurants
-      const cuisines = restaurants.map((v, i) => restaurants[i].cuisine_type)
+      const cuisines = restaurants.map((v, i) => restaurants[i].cuisine_type);
       // Remove duplicates from cuisines
-      const uniqueCuisines = cuisines.filter((v, i) => cuisines.indexOf(v) == i)
+      const uniqueCuisines = cuisines.filter((v, i) => cuisines.indexOf(v) == i);
       return uniqueCuisines;
     });
   }
 
   /**
    * Restaurant page URL.
+   * TODO: move to Restaurant class
    */
   static urlForRestaurant(restaurant) {
     return (`./restaurant.html?id=${restaurant.id}`);
@@ -76,6 +77,7 @@ class DBHelper {
 
   /**
    * Restaurant image URL.
+   * TODO: move to Restaurant class
    */
   static imageUrlForRestaurant(restaurant) {
     return (`/img/${restaurant.photograph}`);
@@ -91,8 +93,7 @@ class DBHelper {
       url: DBHelper.urlForRestaurant(restaurant),
       map: map,
       animation: google.maps.Animation.DROP
-    }
-    );
+    });
     return marker;
   }
 

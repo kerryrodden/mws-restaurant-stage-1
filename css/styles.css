@@ -188,6 +188,10 @@ nav h1 a {
   width: 90%;
   padding: 50px 40px 30px;
 }
+.inside main {
+  display: flex;
+  flex-wrap: wrap;
+}
 .inside footer {
   bottom: 0;
   position: absolute;
@@ -270,7 +274,7 @@ nav h1 a {
     height: 87%;
     position: fixed;
     right: 0;
-    top: 80px;
+    top: 130px;
     width: 50%;
     padding: 0;
   }
@@ -286,6 +290,6 @@ nav h1 a {
   }
   #restaurant-container,
   #reviews-container {
-    width: 50%;
+    width: 45%;
   }
 }

@@ -100,19 +100,22 @@ function fillReviewsHTML(restaurant) {
 function createReviewHTML(review) {
   const li = document.createElement('li');
   const name = document.createElement('p');
-  name.innerHTML = review.name;
+  name.className = 'reviewer';
+  name.textContent = review.name;
   li.appendChild(name);
 
   const date = document.createElement('p');
-  date.innerHTML = review.date;
+  date.className = 'review-date';
+  date.textContent = review.date;
   li.appendChild(date);
 
   const rating = document.createElement('p');
-  rating.innerHTML = `Rating: ${review.rating}`;
+  rating.className = 'rating';
+  rating.textContent = `Rating: ${review.rating}`;
   li.appendChild(rating);
 
   const comments = document.createElement('p');
-  comments.innerHTML = review.comments;
+  comments.textContent = review.comments;
   li.appendChild(comments);
 
   return li;

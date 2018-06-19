@@ -3,7 +3,18 @@
  */
 class DBHelper {
 
-  // TODO: return promises from these methods instead of calling the callbacks
+  /**
+   * Register a service worker for this application.
+   */
+  static registerServiceWorker() {
+    if (!navigator.serviceWorker) return;
+    navigator.serviceWorker.register('/js/sw.js').then(function() {
+      console.log('Registration worked!');
+    }).catch(function() {
+      console.log('Registration failed!');
+    });
+  }
+
   /**
    * Fetch all restaurants.
    */

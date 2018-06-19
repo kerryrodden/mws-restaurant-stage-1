@@ -1,9 +1,9 @@
 let map = null;
 const markers = [];
 
-/**
- * Fetch neighborhoods and cuisines as soon as the page is loaded.
- */
+DBHelper.registerServiceWorker();
+
+// Fetch neighborhoods and cuisines as soon as the page is loaded.
 document.addEventListener('DOMContentLoaded', () => {
   fetchNeighborhoods();
   fetchCuisines();

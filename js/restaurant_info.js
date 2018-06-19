@@ -1,3 +1,5 @@
+DBHelper.registerServiceWorker();
+
 /**
  * Initialize Google map, called from HTML.
  */

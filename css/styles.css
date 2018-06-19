@@ -49,7 +49,7 @@ nav h1 a {
   color: white;
 }
 #breadcrumb {
-  padding: 10px 40px 16px;
+  padding: 10px 40px 10px;
   list-style: none;
   background-color: #e0e0e0;
   margin: 0;
@@ -250,7 +250,7 @@ nav h1 a {
     height: 87%;
     position: fixed;
     right: 0;
-    top: 130px;
+    top: 125px;
     width: 50%;
     padding: 0;
     border-bottom: none;

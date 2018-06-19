@@ -1,5 +1,3 @@
-DBHelper.registerServiceWorker();
-
 /**
  * Initialize Google map, called from HTML.
  */
@@ -11,6 +9,8 @@ function initMap() {
       scrollwheel: false
     });
     DBHelper.mapMarkerForRestaurant(restaurant, map);
+    // Register service worker here, in case user comes to this page without first going to the homepage
+    DBHelper.registerServiceWorker();
   });
 }
 

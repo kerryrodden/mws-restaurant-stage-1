@@ -1,4 +1,9 @@
-self.addEventListener('install', function(event) {
+// Service worker. Written with reference to:
+// https://developers.google.com/web/fundamentals/primers/service-workers/
+// https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
+
+// Cache page content on install.
+self.addEventListener('install', function (event) {
   var urlsToCache = [
     '/',
     'index.html',
@@ -21,14 +26,31 @@ self.addEventListener('install', function(event) {
   ];
 
   event.waitUntil(
-    caches.open('mws-restaurant-v1').then(function(cache) {
+    caches.open(currentCacheName).then(function (cache) {
       return cache.addAll(urlsToCache);
     }));
 });
 
-self.addEventListener('fetch', function(event) {
+// Invalidate any old caches as needed.
+self.addEventListener('activate', function (event) {
+  const currentCacheName = 'mws-restaurants-v1';
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames.map(function (cacheName) {
+          if (cacheName !== currentCacheName) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
+// Serve requests from the cache first, then from the network.
+self.addEventListener('fetch', function (event) {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
+    caches.match(event.request).then(function (response) {
       return response || fetch(event.request);
     })
   );

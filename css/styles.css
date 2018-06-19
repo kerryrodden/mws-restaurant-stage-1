@@ -47,7 +47,6 @@ nav {
 nav h1 {
   margin: auto;
   font-weight: 200;
-  letter-spacing: 0.3em;
   text-transform: uppercase;
   padding-top: 1em;
 }
@@ -97,7 +96,6 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
   background-color: #3397DB;
   align-items: center;
 }
@@ -105,8 +103,7 @@ nav h1 a {
   color: white;
   font-size: 1.25em;
   font-weight: normal;
-  line-height: 1;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 .filter-options select {
   background-color: white;
@@ -114,10 +111,8 @@ nav h1 a {
   font-family: Arial, sans-serif;
   font-size: 1em;
   height: 35px;
-  letter-spacing: 0;
-  margin: 10px;
-  padding: 0 10px;
-  width: 200px;
+  margin: 10px 0 10px 10px;
+  width: 160px;
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -126,19 +121,16 @@ nav h1 a {
   list-style: outside none none;
   margin: 0;
   padding: 30px 15px 60px;
-  text-align: center;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 10px;
   grid-template-columns: repeat(auto-fill,minmax(340px, 1fr));
 }
 #restaurants-list li {
   background-color: white;
-  border: 2px solid #ccc;
-  margin: 15px;
+  margin: 15px 0;
   min-height: 380px;
-  padding: 0 30px 25px;
-  text-align: left;
-  width: 270px;
+  padding: 0 15px 15px;
+  width: 300px;
 }
 #restaurants-list .restaurant-img {
   display: block;
@@ -258,6 +250,13 @@ nav h1 a {
 }
 
 /* ====================== Responsive styles  ====================== */
+
+@media screen and (min-width: 450px) {
+  nav h1 {
+    letter-spacing: 0.3em;
+  }
+}
+
 @media screen and (min-width: 1000px) {
   .inside #map-container {
     height: 87%;

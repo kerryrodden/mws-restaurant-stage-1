@@ -37,6 +37,7 @@ function fillRestaurantHTML(restaurant) {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = ''; // Image is just a picture of the restaurant so doesn't need a description
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;

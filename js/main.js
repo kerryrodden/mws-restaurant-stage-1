@@ -122,10 +122,14 @@ function createRestaurantHTML(restaurant) {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = ''; // Image is just a picture of the restaurant so doesn't need a description
   li.append(image);
 
-  const name = document.createElement('h1');
-  name.innerHTML = restaurant.name;
+  const name = document.createElement('h3');
+  const more = document.createElement('a');
+  more.href = DBHelper.urlForRestaurant(restaurant);
+  more.innerHTML = restaurant.name;
+  name.append(more);
   li.append(name);
 
   const neighborhood = document.createElement('p');
@@ -135,11 +139,6 @@ function createRestaurantHTML(restaurant) {
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
   li.append(address);
-
-  const more = document.createElement('a');
-  more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more);
 
   return li;
 }

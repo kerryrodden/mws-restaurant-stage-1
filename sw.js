@@ -2,6 +2,8 @@
 // https://developers.google.com/web/fundamentals/primers/service-workers/
 // https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
 
+const currentCacheName = 'mws-restaurants-v1';
+
 // Cache page content on install.
 self.addEventListener('install', function (event) {
   var urlsToCache = [
@@ -33,7 +35,6 @@ self.addEventListener('install', function (event) {
 
 // Invalidate any old caches as needed.
 self.addEventListener('activate', function (event) {
-  const currentCacheName = 'mws-restaurants-v1';
   event.waitUntil(
     caches.keys().then(function (cacheNames) {
       return Promise.all(

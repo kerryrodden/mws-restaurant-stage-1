@@ -1,5 +1,5 @@
 /**
- * Common database helper functions.
+ * Common helper functions.
  */
 class DBHelper {
 
@@ -9,9 +9,9 @@ class DBHelper {
   static registerServiceWorker() {
     if (!navigator.serviceWorker) return;
     navigator.serviceWorker.register('sw.js').then(function() {
-      console.log('Registration worked!');
+      console.log('Service worker registered successfully');
     }).catch(function() {
-      console.log('Registration failed!');
+      console.log('Service worker registration failed');
     });
   }
 
@@ -80,7 +80,6 @@ class DBHelper {
 
   /**
    * Restaurant page URL.
-   * TODO: move to Restaurant class
    */
   static urlForRestaurant(restaurant) {
     return (`./restaurant.html?id=${restaurant.id}`);
@@ -88,7 +87,6 @@ class DBHelper {
 
   /**
    * Restaurant image URL.
-   * TODO: move to Restaurant class
    */
   static imageUrlForRestaurant(restaurant) {
     return (`/img/${restaurant.photograph}`);

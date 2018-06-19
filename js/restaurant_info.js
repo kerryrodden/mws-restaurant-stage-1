@@ -3,14 +3,18 @@
  */
 function initMap() {
   fetchRestaurantFromURL().then((restaurant) => {
-    const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,
-      center: restaurant.latlng,
-      scrollwheel: false
-    });
-    DBHelper.mapMarkerForRestaurant(restaurant, map);
-    // Register service worker here, in case user comes to this page without first going to the homepage
-    DBHelper.registerServiceWorker();
+    if (restaurant) {
+      const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: restaurant.latlng,
+        scrollwheel: false
+      });
+      DBHelper.mapMarkerForRestaurant(restaurant, map);
+      // Register service worker here, in case user comes to this page without first going to the homepage
+      DBHelper.registerServiceWorker();
+    }
+  }).catch((error) => {
+    console.error('Error fetching restaurant: ', error);
   });
 }
 
@@ -18,10 +22,14 @@ function initMap() {
  * Get current restaurant from page URL.
  */
 function fetchRestaurantFromURL() {
-  const id = getParameterByName('id'); // TODO: error if id is not available
+  const id = getParameterByName('id');
   return DBHelper.fetchRestaurantById(id).then((restaurant) => {
-    fillRestaurantHTML(restaurant);
-    fillBreadcrumb(restaurant);
+    if (restaurant) {
+      fillRestaurantHTML(restaurant);
+      fillBreadcrumb(restaurant);
+    } else {
+      showRestaurantNotFoundError(id);
+    }
     return restaurant;
   });
 }
@@ -147,4 +155,12 @@ function getParameterByName(name, url) {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+/**
+ * Show an error message if we don't find the restaurant
+ */
+function showRestaurantNotFoundError(id) {
+  const container = document.getElementById('restaurant-container');
+  container.textContent = `Restaurant ID ${id} not found`;
 }

@@ -154,6 +154,8 @@ nav h1 a {
 .inside #map-container {
   width: 90%;
   padding: 50px 40px 30px;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 .inside main {
   display: flex;
@@ -189,11 +191,6 @@ nav h1 a {
   text-align: center;
   text-transform: uppercase;
   width: 90%;
-}
-#restaurant-container,
-#reviews-container {
-  border-bottom: 1px solid #d9d9d9;
-  border-top: 1px solid white;
 }
 #restaurant-container {
   width: 500px;
@@ -250,6 +247,8 @@ nav h1 a {
     top: 130px;
     width: 50%;
     padding: 0;
+    border-bottom: none;
+    border-top: none;
   }
   .inside #map {
     height: 100%;

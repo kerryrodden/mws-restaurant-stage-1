@@ -122,7 +122,7 @@ function createRestaurantHTML(restaurant) {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = ''; // Image is just a picture of the restaurant so doesn't need a description
+  image.alt = ''; // Image is just a picture of the restaurant so description would be redundant
   li.append(image);
 
   const name = document.createElement('h3');

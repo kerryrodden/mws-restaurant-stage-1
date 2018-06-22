@@ -47,7 +47,7 @@ function fillRestaurantHTML(restaurant) {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = ''; // Image is just a picture of the restaurant so doesn't need a description
+  image.alt = ''; // Image is just a picture of the restaurant so description would be redundant
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -87,7 +87,7 @@ function fillRestaurantHoursHTML(restaurant) {
 function fillReviewsHTML(restaurant) {
   const reviews = restaurant.reviews;
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 

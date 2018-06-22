@@ -34,18 +34,20 @@ footer {
 }
 
 /* ====================== Navigation ====================== */
-nav {
-  height: 80px;
+header {
   background-color: #333;
-  text-align: center;
 }
-nav h1 {
+header h1 {
   margin: auto;
   font-weight: 200;
   text-transform: uppercase;
-  padding-top: 1em;
+  padding-top: 20px;
+  height: 64px;
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
 }
-nav h1 a {
+header h1 a {
   color: white;
 }
 #breadcrumb {
@@ -54,7 +56,10 @@ nav h1 a {
   background-color: #e0e0e0;
   margin: 0;
 }
-
+#breadcrumb ul {
+  margin: 0;
+  padding: 0;
+}
 /* Display list items side by side */
 #breadcrumb li {
   display: inline;
@@ -233,8 +238,9 @@ nav h1 a {
 /* ====================== Responsive styles  ====================== */
 
 @media screen and (min-width: 450px) {
-  nav h1 {
+  header h1 {
     letter-spacing: 0.3em;
+    font-size: 2em;
   }
 }
 

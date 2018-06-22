@@ -7,12 +7,12 @@ class DBHelper {
    * Register a service worker for this application.
    */
   static registerServiceWorker() {
-    if (!navigator.serviceWorker) return;
-    navigator.serviceWorker.register('sw.js').then(function() {
-      console.log('Service worker registered successfully');
-    }).catch(function() {
-      console.log('Service worker registration failed');
-    });
+    // if (!navigator.serviceWorker) return;
+    // navigator.serviceWorker.register('sw.js').then(function() {
+    //   console.log('Service worker registered successfully');
+    // }).catch(function() {
+    //   console.log('Service worker registration failed');
+    // });
   }
 
   /**
